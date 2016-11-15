@@ -6,6 +6,7 @@ var GUI = (function(){
                 [['Tenis', 'nuevos, color azul', '500']]);
         tabla = HTML.envolver(tabla);
         document.body.appendChild(tabla.set_attribute('border', '1').
+                add_class('mui-table').
                 element());
     };
 
@@ -22,12 +23,22 @@ var GUI = (function(){
                 set_text('Nombre').
                 element());
 
+        div.append_child(HTML.new_element('input', {'type': 'text'}).
+               set_attribute('placeholder', 'cosas...') .
+               element());
+
         div.append_child(HTML.new_element('input', {'type': 'checkbox'}).
+                element());
+
+        div.append_child(HTML.new_element('label', {}).
                 set_text('Sólo ofertas').
                 element());
         
-        div.append_child(HTML.new_element('button', {}).
+        div.append_child(HTML.new_element('button').
                 set_text('Buscar').
+                add_class('mui-btn').
+                add_class('mui-btn--raised').
+                add_class('mui-btn--primary').
                 element());
 
         document.body.appendChild(div.element());
