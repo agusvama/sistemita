@@ -2,13 +2,20 @@
 var GUI = (function(){
 
     var productos = function(){
-        var tabla = HTML.table(['Nombre', 'Descripción', 'Precio'], 
-                [['Tenis', 'nuevos, color azul', '500']]);
+        // var tabla = HTML.table(['Nombre', 'Marca', 'Precio'], 
+                // [['Tenis', 'nuevos, color azul', '500']]);
+        var header = ['Nombre', 'Marca', 'Precio'];
+                // [['Tenis', 'nuevos, color azul', '500']]
+        //consulta...
+        var tabla = HTML.table(header, Tabla.productos(Catalogo.productos));
         tabla = HTML.envolver(tabla);
-        document.body.appendChild(tabla.set_attribute('border', '1').
-                add_class('pure-table').
+        var div2 = HTML.new_element('div', {class: 'pure-u-5-5'});
+        var div = HTML.new_element('div' , {class: 'pure-g'});
+        div2.append_child(tabla.add_class('pure-table').
                 add_class('pure-table-horizontal').
                 element());
+        div.append_child(div2.element());
+        document.body.appendChild(div.element());
     };
 
     var encabezado = function(){
